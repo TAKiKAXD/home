@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.social-links {
+    margin: 20px 0;
+}
+
+.social-link {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.social-link:hover {
+    color: #0056b3;
+}
+
+main {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 20vh; 
+}
+
+.image-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.image-buttons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px; 
+    height: auto;
+}
+
+
+.image-buttons a img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+footer {
+    margin-top: auto;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    position: relative; 
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    header {
+        background-color: #1c1c1c;
+        color: #e0e0e0;
+        border-bottom: 2px solid #333;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        color: #e0e0e0;
+    }
+    
+    header p {
+        font-size: 1.2rem;
+        color: #e0e0e0;
+    }
+
+    footer {
+        background-color: #1f1f1f;
+        color: #e0e0e0;
+    }
+
+    .social-link {
+        color: #4da3ff;
+    }
+
+    .social-link:hover {
+        color: #357dcb;
+    }
+
+    .image-buttons a img {
+        border: 2px solid #333;
+    }
+
+    .image-buttons a img:hover {
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    }
+}

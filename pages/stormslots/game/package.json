@@ -1,0 +1,56 @@
+{
+  "name": "stormslots",
+  "version": "1.0.0-B",
+  "description": "slots",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.stormslots",
+    "productName": "HPE",
+    "files": [
+      "package.json",
+      "main.js",
+      "preload.js",
+      "index.html",
+      "app.js",
+      "stats.js",
+      "settings.js",
+      "images/**/*",
+      "styles.css",
+      "stats.html",
+      "settings.html",
+      "disclaimer.html",
+      "disclaimer.js",
+      "debts.js",
+      "debts.html",
+      "achievements.html",
+      "achievements.js"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "./images/fav.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^32.0.2",
+    "electron-builder": "^25.0.5"
+  }
+}

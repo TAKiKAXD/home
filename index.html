@@ -1,49 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Hi I'm TAKiKA!</h1>
-        <p>I make lots of cool stuff like games, music, renders, and more</p>
-    </header>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>TAKiKA'S STUFF!</h1>
+            <p>I create cool stuff.</p>
+        </header>
+        <section class="social-links">
+            <a href="https://twitter.com/TAKiKAXD" target="_blank" class="social-link">Twitter</a>
+            <a href="https://discord.gg/kQ4yVYQD6P" target="_blank" class="social-link">Discord</a>
+        </section>
+        <main>
+            <section class="image-buttons">
+                <a href="./pages/soon.html">
+                    <img src="images/stromslots-hover.png" alt="Storm Slots">
+                </a>
+    
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 TAKiKAXD</p>
+        </footer>
 
-    <div class="social-links">
-        <a href="https://twitter.com/TAKiKAXD" target="_blank">Twitter</a>
-        <a href="https://discord.gg/kQ4yVYQD6P" target="_blank">Discord</a>
-    </div>
-
-    <main>
-        <div class="image-buttons">
-            <a href="./pages/soon.html">
-                <img src="images/stormslots-normal.png" alt="stromslots" class="hover-image" data-hover="images/stromslots-hover.png">
-            </a>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 TAKiKAXD</p>
-    </footer>
-
-    <script>
-        const hoverImages = document.querySelectorAll('.hover-image');
-
-        hoverImages.forEach(img => {
-            const originalSrc = img.src;
-            const hoverSrc = img.getAttribute('data-hover');
-
-            img.addEventListener('mouseover', () => {
-                img.src = hoverSrc;
-            });
-
-            img.addEventListener('mouseout', () => {
-                img.src = originalSrc;
-            });
-        });
-    </script>
-</body>
-</html>
+    </body>
+    </html>
