@@ -4,13 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .container h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        #countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background-color: #004494;
+            transform: scale(1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+
+            .container {
+                background-color: #1f1f1f;
+                color: #e0e0e0;
+            }
+
+            .container h1 {
+                font-size: 3rem;
+                color: #e0e0e0;
+                margin-bottom: 20px;
+            }
+            .container p {
+                font-size: 1.2rem;
+                color: #e0e0e0;
+                margin-bottom: 30px;
+            }   
+
+            #countdown {
+                color: #e0e0e0;
+            }
+
+            button {
+                background-color: #4da3ff;
+                color: #121212;
+            }
+
+            button:hover {
+                background-color: #357dcb;
+            }
+
+            button:active {
+                background-color: #2a5ea1;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Coming Soon</h1>
         <p>We are working hard on the next area of the site.</p>
-        <p id="countdown">00d 00h 00m 00s</p> 
+        <p id="countdown">0d 00h 00m 00s</p> 
         <button onclick="history.back()">Go Back</button>
     </div>
 
