@@ -1,0 +1,78 @@
+body {
+    background-image: url('images/FORT_Load_WildWest.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    margin: 0; 
+    font-family: 'Burbank Big Condensed', sans-serif; 
+    color: white;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+#message {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.container {
+    display: flex;
+    align-items: flex-start; /* Align items at the start (top) */
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px; /* Adjust as needed */
+    margin-top: 80px; /* Space for the message */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+#stage-info {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: rgba(0, 20, 55, 0.8);
+    border: 2px solid #0094ff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    color: white;
+    margin-right: 20px; /* Space between stage info and game container */
+    min-width: 200px; /* Ensure it has a minimum width */
+    flex: 0 1 200px; /* Flex settings to stay at the correct size */
+}
+
+#stage-info p {
+    margin: 5px 0;
+}
+
+#game-container {
+    flex: 1; /* Allow game container to grow */
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Adjust as needed */
+    height: 700px; /* Adjust as needed */
+    min-width: 700px; /* Minimum width for smaller screens */
+}
+
+#image-container {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #0094ff;
+    background-color: rgba(0, 51, 122, 0.7); 
+    border-radius: 10px;
+    position: relative;
+}
+
+#image-container img {
+    position: absolute;
+    cursor: pointer;
+    max-width: 100%; /* Ensure images are responsive */
+    max-height: 100%;
+    /* Optional: Add transition effects for smoother resizing */
+    transition: all 0.2s ease;
+}
