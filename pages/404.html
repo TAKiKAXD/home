@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-link {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .social-link:hover {
+            color: #0056b3;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            min-height: 60vh; 
+            padding: 20px;
+        }
+
+        .image-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-buttons img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            position: relative; 
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+
+            header {
+                background-color: #1c1c1c;
+                color: #e0e0e0;
+                border-bottom: 2px solid #333;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+                color: #e0e0e0;
+            }
+
+            header p {
+                font-size: 1.2rem;
+                color: #e0e0e0;
+            }
+
+            footer {
+                background-color: #1f1f1f;
+                color: #e0e0e0;
+            }
+
+            .social-link {
+                color: #4da3ff;
+            }
+
+            .social-link:hover {
+                color: #357dcb;
+            }
+
+            .image-buttons img {
+                border: 2px solid #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>404 Page Not Found</h1>
+        <p>Looks like the llama ate it!</p>
+    </header>
+    <main>
+        <div class="image-buttons">
+            <img src="../images/llama.png" alt="Lost Llama">
+            <p class="message">Oops! We can't find the page you're looking for.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 TAKiKAXD</p>
+    </footer>
+</body>
+</html>
