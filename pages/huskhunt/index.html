@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Husk Hunt (Temp)</title>
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <style>
+        /* General Styles */
+        .warning-bar {
+            background-color: #ff4d4d; 
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            width: 100%;
+            max-width: 850px;
+            box-sizing: border-box; 
+            margin: 0 auto;
+            border-radius: 12px; 
+        }
+
+        .content {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 20px auto 0; 
+        }
+
+        .content img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .content .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .content .buttons a {
+            text-decoration: none;
+            font-size: 1rem;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .content .buttons a.download {
+            background-color: #007BFF;
+        }
+
+        .content .buttons a.download:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .content .buttons a.play {
+            background-color: #28a745;
+        }
+
+        .content .buttons a.play:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background-color: #004494;
+            transform: scale(1);
+        }
+
+        /* Dark Mode Styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+
+            .content {
+                background-color: #1f1f1f;
+                color: #e0e0e0;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .content img {
+                border: 2px solid #333;
+            }
+
+            .content h2 {
+                color: #e0e0e0;
+            }
+
+            .content p {
+                color: #bbb;
+            }
+
+            .content .buttons a.download {
+                background-color: #4da3ff;
+            }
+
+            .content .buttons a.download:hover {
+                background-color: #357dcb;
+            }
+
+            .content .buttons a.play {
+                background-color: #4CAF50;
+            }
+
+            .content .buttons a.play:hover {
+                background-color: #388e3c;
+            }
+            button {
+                background-color: #4da3ff;
+                color: #e0e0e0;
+            }
+
+            button:hover {
+                background-color: #357dcb;
+            }
+
+            button:active {
+                background-color: #2a5ea1;
+            }            
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img src="./images/huskhuntimage.png" alt="Descriptive Image">
+        <h2>Husk Hunt (Temp)</h2>
+        <p>
+            Husk Hunt: The Ultimate Fortnite STW Target Challenge. (Temp)<br>
+            Play now or download for Windows.<br>
+        </p>
+        <div class="buttons">
+            <a href="" class="download">Download</a>
+            <a href="" class="play">Play Now</a>
+            <button onclick="history.back()">Go Back</button>
+        </div>
+    </div>
+</body>
+</html>
