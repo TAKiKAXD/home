@@ -4,25 +4,23 @@ const currentStageElem = document.getElementById('current-stage');
 const highestStageElem = document.getElementById('highest-stage');
 
 const imageUrls = {
-    correct: 'images/medkit.png', 
-    incorrect: 'images/minillama.png' 
+    correct: 'images/medkit.png',
+    incorrect: 'images/minillama.png'
 };
 
 let stage = 1;
-let highestStage = loadHighestStage(); 
-const initialImageSize = 100; 
-const minImageSize = 30; 
+let highestStage = loadHighestStage();
+const initialImageSize = 100;
+const minImageSize = 30;
+let canClick = true; 
 
 function generateImages() {
     imageContainer.innerHTML = '';
-    const totalImages = 5 + stage; 
+    const totalImages = 5 + stage;
     const correctIndex = Math.floor(Math.random() * totalImages);
 
-    const imageSize = Math.max(minImageSize, initialImageSize - (stage * 5)); 
+    const imageSize = Math.max(minImageSize, initialImageSize - (stage * 5));
     const positions = generateUniquePositions(totalImages, imageSize);
-
-    console.log(`Generating ${totalImages} images at stage ${stage} with size ${imageSize}`);
-    console.log(`Positions:`, positions);
 
     for (let i = 0; i < totalImages; i++) {
         const img = document.createElement('img');
@@ -31,13 +29,14 @@ function generateImages() {
         img.style.height = `${imageSize}px`;
         img.addEventListener('click', () => handleImageClick(i === correctIndex));
 
-        
-        img.style.position = 'absolute'; 
+        img.style.position = 'absolute';
         img.style.left = `${positions[i].x}px`;
         img.style.top = `${positions[i].y}px`;
 
         imageContainer.appendChild(img);
     }
+
+    canClick = true; 
 }
 
 function generateUniquePositions(count, imageSize) {
@@ -64,25 +63,28 @@ function generateUniquePositions(count, imageSize) {
 }
 
 function handleImageClick(isCorrect) {
+    if (!canClick) return; 
+    canClick = false; 
+
     if (isCorrect) {
         if (stage >= 120) {
-            displayWinScreen(); 
+            displayWinScreen();
         } else {
             message.textContent = 'Correct! Moving to the next stage...';
             stage++;
             if (stage > highestStage) {
-                highestStage = stage; 
+                highestStage = stage;
                 saveHighestStage(highestStage);
             }
             updateStageInfo();
             setTimeout(() => {
-                generateImages();
+                generateImages(); 
                 message.textContent = 'Find the MedKit!';
-            }, 1000); 
+            }, 1000);
         }
     } else {
         message.textContent = 'Try again! Resetting to Stage 1.';
-        stage = 1; 
+        stage = 1;
         updateStageInfo();
         setTimeout(() => {
             generateImages();
@@ -102,13 +104,12 @@ function saveHighestStage(stage) {
 
 function loadHighestStage() {
     const savedStage = localStorage.getItem('highestStage');
-    return savedStage ? parseInt(savedStage, 10) : 1; 
+    return savedStage ? parseInt(savedStage, 10) : 1;
 }
 
 function displayWinScreen() {
     window.location.href = 'win.html';
 }
-
 
 // Initialize the game
 generateImages();
