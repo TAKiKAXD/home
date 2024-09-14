@@ -219,7 +219,7 @@
     </div>
 
     <script>
-        fetch('./patch-notes.json')
+        fetch('https://takikaxd.github.io/site/API/stormslots/patchnotes.json')
             .then(response => response.json())
             .then(data => {
                 const patchList = document.getElementById('patch-list');
