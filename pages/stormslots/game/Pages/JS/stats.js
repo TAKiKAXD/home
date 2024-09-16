@@ -29,5 +29,5 @@ function formatTimePlayed(milliseconds) {
 }
 
 function goBack() {
-    window.location.href = '../index.html';
+    window.history.back();
 }
