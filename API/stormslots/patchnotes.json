@@ -1,5 +1,11 @@
 {
     "notes": [
+        "Version 1.0.0-B - Added local storage support for last spin results",
+        "  - Last spin results and result display are now saved and restored from local storage.",
+        "  - Updated the `spin` function to save last spin results and result text.",
+        "  - Added `saveLastSpinResults` and `getLastSpinResults` functions.",
+        "  - Updated page load logic to display last spin results if available.",
+        "",
         "Version 1.0.0-A - Release"
     ]
 }
