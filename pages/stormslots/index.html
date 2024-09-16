@@ -3,239 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homebase Pocket Emptier!</title>
-    <link rel="stylesheet" href="/CSS/styles.css">
-    <style>
-        /* General Styles */
-        .warning-bar {
-            background-color: #ff4d4d; 
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            width: 100%;
-            max-width: 850px;
-            box-sizing: border-box; 
-            margin: 0 auto;
-            border-radius: 12px; 
-        }
-
-        .content {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 20px auto 0; 
-        }
-
-        .content img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        .content h2 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
-        .content .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .content .buttons a {
-            text-decoration: none;
-            font-size: 1rem;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .content .buttons a.download {
-            background-color: #007BFF;
-        }
-
-        .content .buttons a.download:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        .content .buttons a.play {
-            background-color: #28a745;
-        }
-
-        .content .buttons a.play:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        button:active {
-            background-color: #004494;
-            transform: scale(1);
-        }
-
-        .patch-notes {
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: left;
-        }
-
-        .patch-notes h3 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .patch-notes ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .patch-notes ul li {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            color: #555;
-        }
-
-        /* Dark Mode Styles */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #121212;
-                color: #e0e0e0;
-            }
-
-            .content {
-                background-color: #1f1f1f;
-                color: #e0e0e0;
-                border-radius: 12px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-
-            .content img {
-                border: 2px solid #333;
-            }
-
-            .content h2 {
-                color: #e0e0e0;
-            }
-
-            .content p {
-                color: #bbb;
-            }
-
-            .content .buttons a.download {
-                background-color: #4da3ff;
-            }
-
-            .content .buttons a.download:hover {
-                background-color: #357dcb;
-            }
-
-            .content .buttons a.play {
-                background-color: #4CAF50;
-            }
-
-            .content .buttons a.play:hover {
-                background-color: #388e3c;
-            }
-            button {
-                background-color: #4da3ff;
-                color: #e0e0e0;
-            }
-
-            button:hover {
-                background-color: #357dcb;
-            }
-
-            button:active {
-                background-color: #2a5ea1;
-            }            
-            .patch-notes {
-                background-color: #1f1f1f;
-                border: 1px solid #333;
-                color: #e0e0e0;
-            }
-
-            .patch-notes h3 {
-                color: #e0e0e0;
-            }
-
-            .patch-notes ul li {
-                color: #bbb;
-            }
-        }
-    </style>
+    <title>Homebase Pocket Emptier! - BETA</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="warning-bar">Mobile play is not recommended</div>
-    <div class="content">
-        <img src="./images/stormslotsimage.png" alt="Descriptive Image">
-        <h2>Homebase Pocket Emptier!</h2>
-        <p>
-            The only Fortnite Save The World slots game.<br>
-            Play now or download for Windows.<br>
-        </p>
-        <div class="buttons">
-            <a href="https://github.com/TAKiKAXD/Homebase-Pocket-Emptier/releases/tag/Alpha" class="download">Download</a>
-            <a href="./game/disclaimer.html" class="play">Play Now</a>
-            <button onclick="history.back()">Go Back</button>
+    <div class="container">
+        <div id="result">Click Spin!</div>
+        <div class="slot-machine">
+            <div class="reel" id="reel1">
+                <img src="images/img1.png">
+                <img src="images/img2.png">
+                <img src="images/img3.png">
+                <img src="images/img4.png">
+                <img src="images/img5.png">
+                <img src="images/img6.png">
+                <img src="images/img7.png">
+                <img src="images/img8.png">
+
+            </div>
+            <div class="reel" id="reel2">
+                <img src="images/img1.png">
+                <img src="images/img2.png">
+                <img src="images/img3.png">
+                <img src="images/img4.png">
+                <img src="images/img5.png">
+                <img src="images/img6.png">
+                <img src="images/img7.png">
+                <img src="images/img8.png">
+
+            </div>
+            <div class="reel" id="reel3">
+                <img src="images/img1.png">
+                <img src="images/img2.png">
+                <img src="images/img3.png">
+                <img src="images/img4.png">
+                <img src="images/img5.png">
+                <img src="images/img6.png">
+                <img src="images/img7.png">
+                <img src="images/img8.png">
+            </div>
+        </div>
+        <button id="spin-btn">Spin</button>
+        <div id="score">VBucks: 0</div>
+        <div id="image-values">
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img1.png" alt="Image 1" class="small-img">
+                    <img src="images/img1.png" alt="Image 1" class="small-img">
+                    <img src="images/img1.png" alt="Image 1" class="small-img">
+                </div>
+                <span id="reward-1">500</span>
+            </div>
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img2.png" alt="Image 2" class="small-img">
+                    <img src="images/img2.png" alt="Image 2" class="small-img">
+                    <img src="images/img2.png" alt="Image 2" class="small-img">
+                </div>
+                <span id="reward-2">1000</span>
+            </div>
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img3.png" alt="Image 3" class="small-img">
+                    <img src="images/img3.png" alt="Image 3" class="small-img">
+                    <img src="images/img3.png" alt="Image 3" class="small-img">
+                </div>
+                <span id="reward-3">1500</span>
+            </div>
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img4.png" alt="Image 4" class="small-img">
+                    <img src="images/img4.png" alt="Image 4" class="small-img">
+                    <img src="images/img4.png" alt="Image 4" class="small-img">
+                </div>
+                <span id="reward-4">2000</span>
+            </div>
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img5.png" alt="Image 5" class="small-img">
+                    <img src="images/img5.png" alt="Image 5" class="small-img">
+                    <img src="images/img5.png" alt="Image 5" class="small-img">
+                </div>
+                <span id="reward-5">2500</span>
+            </div>
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img6.png" alt="Image 6" class="small-img">
+                    <img src="images/img6.png" alt="Image 6" class="small-img">
+                    <img src="images/img6.png" alt="Image 6" class="small-img">
+                </div>
+                <span id="reward-6">3000</span>
+            </div>
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img7.png" alt="Image 7" class="small-img">
+                    <img src="images/img7.png" alt="Image 7" class="small-img">
+                    <img src="images/img7.png" alt="Image 7" class="small-img">
+                </div>
+                <span id="reward-7">3500</span>
+            </div>
+            <div class="image-value">
+                <div class="image-small-container">
+                    <img src="images/img8.png" alt="Image 8" class="small-img">
+                    <img src="images/img8.png" alt="Image 8" class="small-img">
+                    <img src="images/img8.png" alt="Image 8" class="small-img">
+                </div>
+                <span id="reward-8">4000</span>
+            </div>
         </div>
     </div>
-    <div class="patch-notes" id="patch-notes">
-        <h3>Patch Notes</h3>
-        <ul id="patch-list">
-            
-        </ul>
-    </div>
+    <button id="stats-btn" class="stats-button">Stats</button>
+    <button id="settings-btn" class="corner-btn">Settings</button>
+    <button id="debts-btn" class="debt-btn">Debts</button>
 
-    <script>
-        fetch('https://takikaxd.github.io/site/API/stormslots/patchnotes.json')
-            .then(response => response.json())
-            .then(data => {
-                const patchList = document.getElementById('patch-list');
-                data.notes.forEach(note => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = note;
-                    patchList.appendChild(listItem);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching patch notes:', error);
-                const patchList = document.getElementById('patch-list');
-                const listItem = document.createElement('li');
-                listItem.textContent = 'Unable to load patch notes.';
-                patchList.appendChild(listItem);
-            });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
