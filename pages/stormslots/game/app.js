@@ -23,6 +23,8 @@ let totalClicks = 0;
 let vbucksEarned = 0;
 let vbucksSpent = 0;
 let startTime = Date.now();
+let spinButtonCooldownEnd = 0;
+const SPIN_COOLDOWN_DURATION = 500; // 500ms cooldown
 
 function saveScore(score) {
     localStorage.setItem('slotMachineScore', score);
@@ -93,15 +95,20 @@ function checkWin(reel1Index, reel2Index, reel3Index) {
 }
 
 function spin(isAutoSpin = false) {
-    if (spinButton.disabled) {
-        console.log('Spin button is currently disabled.');
+    const currentTime = Date.now();
+
+    if (spinButton.disabled || currentTime < spinButtonCooldownEnd) {
+        console.log('Spin button is currently disabled or cooldown in effect.');
         return;
     }
-    
+
     console.log('Spin button clicked. Starting spin...');
 
     totalClicks++;
     spinButton.disabled = true;
+
+    // Set the cooldown end time
+    spinButtonCooldownEnd = currentTime + SPIN_COOLDOWN_DURATION;
 
     let isHardcore = localStorage.getItem('hardcoreMode') === 'true';
     
@@ -154,8 +161,6 @@ function spin(isAutoSpin = false) {
         score += points;
         vbucksEarned += points;
         resultText = `You win! +${points} Vbucks!`;
-        // Assuming submitScoreToMongoDB is defined elsewhere
-        submitScoreToMongoDB(score);
     } else {
         resultText = 'Try again!';
     }
@@ -169,7 +174,7 @@ function spin(isAutoSpin = false) {
     setTimeout(() => {
         spinButton.disabled = false;
         console.log('Spin button re-enabled.');
-    }, 500);
+    }, SPIN_COOLDOWN_DURATION);
 }
 
 function applyHardcoreGlow() {
@@ -205,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const lastResults = getLastSpinResults();
     if (lastResults.resultText) {
-        resultDisplay.textContent = lastResults.resultText;
         displayRandomImage(reel1, lastResults.reel1Index);
         displayRandomImage(reel2, lastResults.reel2Index);
         displayRandomImage(reel3, lastResults.reel3Index);
@@ -219,7 +223,7 @@ spinButton.addEventListener('click', () => {
         stopAutoSpin();
     } catch (error) {
         console.error('Error occurred during spin:', error);
-        spinButton.disabled = false;  // Ensure button is re-enabled in case of error
+        spinButton.disabled = false; 
     }
 });
 
