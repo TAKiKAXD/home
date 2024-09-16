@@ -6,14 +6,14 @@ const resultDisplay = document.getElementById('result');
 const scoreDisplay = document.getElementById('score');
 
 const baseImagePoints = {
-    0: 500,  
-    1: 1000, 
-    2: 1500, 
-    3: 2000, 
-    4: 2500, 
-    5: 3000, 
-    6: 3500, 
-    7: 4000  
+    0: 500,
+    1: 1000,
+    2: 1500,
+    3: 2000,
+    4: 2500,
+    5: 3000,
+    6: 3500,
+    7: 4000
 };
 
 let imagePoints = { ...baseImagePoints };
@@ -22,7 +22,7 @@ let score = 0;
 let totalClicks = 0;
 let vbucksEarned = 0;
 let vbucksSpent = 0;
-let startTime = Date.now(); 
+let startTime = Date.now();
 
 function saveScore(score) {
     localStorage.setItem('slotMachineScore', score);
@@ -71,18 +71,17 @@ function getRandomImageIndex() {
     return Math.floor(Math.random() * Object.keys(imagePoints).length);
 }
 
-function displayRandomImage(reel) {
+function displayRandomImage(reel, index) {
     const children = reel.children;
-    const randomIndex = getRandomImageIndex();
     
-    Array.from(children).forEach((img, index) => {
-        img.style.display = 'none'; 
-        if (index === randomIndex) {
-            img.style.display = 'block'; 
+    Array.from(children).forEach((img, imgIndex) => {
+        img.style.display = 'none';
+        if (imgIndex === index) {
+            img.style.display = 'block';
         }
     });
-    
-    return randomIndex;
+
+    return index;
 }
 
 function checkWin(reel1Index, reel2Index, reel3Index) {
@@ -94,6 +93,13 @@ function checkWin(reel1Index, reel2Index, reel3Index) {
 }
 
 function spin(isAutoSpin = false) {
+    if (spinButton.disabled) {
+        console.log('Spin button is currently disabled.');
+        return;
+    }
+    
+    console.log('Spin button clicked. Starting spin...');
+
     totalClicks++;
     spinButton.disabled = true;
 
@@ -127,9 +133,15 @@ function spin(isAutoSpin = false) {
         }
     }
 
-    const reel1Result = displayRandomImage(reel1);
-    const reel2Result = displayRandomImage(reel2);
-    const reel3Result = displayRandomImage(reel3);
+    const reel1Result = getRandomImageIndex();
+    const reel2Result = getRandomImageIndex();
+    const reel3Result = getRandomImageIndex();
+
+    console.log('Reel results:', reel1Result, reel2Result, reel3Result);
+
+    displayRandomImage(reel1, reel1Result);
+    displayRandomImage(reel2, reel2Result);
+    displayRandomImage(reel3, reel3Result);
 
     let points = checkWin(reel1Result, reel2Result, reel3Result);
 
@@ -142,6 +154,7 @@ function spin(isAutoSpin = false) {
         score += points;
         vbucksEarned += points;
         resultText = `You win! +${points} Vbucks!`;
+        // Assuming submitScoreToMongoDB is defined elsewhere
         submitScoreToMongoDB(score);
     } else {
         resultText = 'Try again!';
@@ -155,15 +168,16 @@ function spin(isAutoSpin = false) {
 
     setTimeout(() => {
         spinButton.disabled = false;
+        console.log('Spin button re-enabled.');
     }, 500);
 }
 
 function applyHardcoreGlow() {
     const hardcoreMode = localStorage.getItem('hardcoreMode') === 'true';
     if (hardcoreMode) {
-        document.body.classList.add('hardcore-active');  
+        document.body.classList.add('hardcore-active');
     } else {
-        document.body.classList.remove('hardcore-active');  
+        document.body.classList.remove('hardcore-active');
     }
 }
 
@@ -187,21 +201,26 @@ document.addEventListener('DOMContentLoaded', () => {
     getSavedStats();
     updateScoreDisplay();
     applyHardcoreGlow();
-    updateImageValues();  
+    updateImageValues();
     
     const lastResults = getLastSpinResults();
     if (lastResults.resultText) {
         resultDisplay.textContent = lastResults.resultText;
-        displayRandomImage(reel1);
-        displayRandomImage(reel2);
-        displayRandomImage(reel3);
+        displayRandomImage(reel1, lastResults.reel1Index);
+        displayRandomImage(reel2, lastResults.reel2Index);
+        displayRandomImage(reel3, lastResults.reel3Index);
     }
     startAutoSpin();
 });
 
 spinButton.addEventListener('click', () => {
-    spin();  
-    stopAutoSpin(); 
+    try {
+        spin();  
+        stopAutoSpin();
+    } catch (error) {
+        console.error('Error occurred during spin:', error);
+        spinButton.disabled = false;  // Ensure button is re-enabled in case of error
+    }
 });
 
 document.getElementById('stats-btn').addEventListener('click', () => {
@@ -222,8 +241,8 @@ document.getElementById('dev-btn').addEventListener('click', () => {
 
 document.getElementById('hardcore-toggle').addEventListener('change', (event) => {
     localStorage.setItem('hardcoreMode', event.target.checked);
-    applyHardcoreGlow();  
-    updateImageValues();  
+    applyHardcoreGlow();
+    updateImageValues();
 });
 
 let autoSpinInterval;
@@ -232,12 +251,12 @@ function startAutoSpin() {
     const autoSpinEnabled = JSON.parse(localStorage.getItem('autoSpin')) || false;
     if (autoSpinEnabled) {
         autoSpinInterval = setInterval(() => {
-            if (score >= 10) { 
-                spin(true); 
+            if (score >= 10) {
+                spin(true);
             } else {
-                stopAutoSpin(); 
+                stopAutoSpin();
             }
-        }, 2000); 
+        }, 2000);
     }
 }
 
@@ -245,6 +264,6 @@ function stopAutoSpin() {
     if (autoSpinInterval) {
         clearInterval(autoSpinInterval);
         autoSpinInterval = null;
-        localStorage.setItem('autoSpin', false); 
+        localStorage.setItem('autoSpin', false);
     }
 }
