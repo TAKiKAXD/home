@@ -1,6 +1,6 @@
 {
     "notes": [
-        "Version 1.1.0-A - Fixed bug for showing last spin results",
+        "Version 1.1.0-A - Fixed a bug that caused the last spin results not to show when changing pages.",
         "Version 1.0.0-A - Release"
     ]
 }
