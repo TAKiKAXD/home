@@ -4,7 +4,7 @@ document.getElementById('clear-data').addEventListener('click', () => {
 });
 
 document.getElementById('back-btn').addEventListener('click', () => {
-    window.location.href = '../index.html';
+    window.history.back();
 });
 
 const hardcoreToggle = document.getElementById('hardcore-toggle');
