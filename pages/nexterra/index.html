@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homebase Pocket Emptier!</title>
+    <title>Homebase Text Adventure</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <style>
         /* General Styles */
@@ -199,15 +199,14 @@
 <body>
     <div class="warning-bar">Mobile play is not recommended</div>
     <div class="content">
-        <img src="./images/stormslotsimage.png" alt="Descriptive Image">
-        <h2>Homebase Pocket Emptier!</h2>
+        <img src="./images/nexterra.png" alt="Descriptive Image">
+        <h2>Homebase Text Adventure!</h2>
         <p>
-            The only Fortnite Save The World slots game.<br>
-            Play now or download for Windows.<br>
+            The only Fortnite Save The World text adventure.<br>
+            Play now.<br>
         </p>
         <div class="buttons">
-            <a href="https://github.com/TAKiKAXD/Homebase-Pocket-Emptier/releases/tag/Alpha" class="download">Download</a>
-            <a href="./game/Pages/disclaimer.html" class="play">Play Now</a>
+            <a href="../../pages/soon.html" class="play">Play Now</a>
             <button onclick="history.back()">Go Back</button>
         </div>
     </div>
@@ -219,7 +218,7 @@
     </div>
 
     <script>
-        fetch('https://takikaxd.github.io/site/API/stormslots/patchnotes.json')
+        fetch('https://takikaxd.github.io/site/API/nexterra/patchnotes.json')
             .then(response => response.json())
             .then(data => {
                 const patchList = document.getElementById('patch-list');

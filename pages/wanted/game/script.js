@@ -12,7 +12,7 @@ let stage = 1;
 let highestStage = loadHighestStage();
 const initialImageSize = 100;
 const minImageSize = 30;
-let canClick = true; 
+let canClick = true; // Control flag to prevent multiple clicks
 
 function generateImages() {
     imageContainer.innerHTML = '';
@@ -36,7 +36,7 @@ function generateImages() {
         imageContainer.appendChild(img);
     }
 
-    canClick = true; 
+    canClick = true; // Reset canClick after new images are generated
 }
 
 function generateUniquePositions(count, imageSize) {
@@ -63,8 +63,9 @@ function generateUniquePositions(count, imageSize) {
 }
 
 function handleImageClick(isCorrect) {
-    if (!canClick) return; 
-    canClick = false; 
+    if (!canClick) return; // Prevent further clicks until allowed
+
+    canClick = false; // Block further clicks until the stage is ready
 
     if (isCorrect) {
         if (stage >= 120) {
@@ -78,7 +79,7 @@ function handleImageClick(isCorrect) {
             }
             updateStageInfo();
             setTimeout(() => {
-                generateImages(); 
+                generateImages(); // Generate new set of images after the delay
                 message.textContent = 'Find the MedKit!';
             }, 1000);
         }
