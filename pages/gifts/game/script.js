@@ -22,16 +22,40 @@ let clickCount = 0;
 
 updateGiftsLeftDisplay();
 
+function formatTime(date) {
+    const hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12; 
+    return `${formattedHours}:${minutes} ${ampm}`;
+}
+
+function calculateNextResetTime() {
+    const now = new Date();
+    const resetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 6, 0, 0); 
+
+    if (now > resetTime) {
+        resetTime.setDate(resetTime.getDate() + 1);
+    }
+
+    return resetTime.getTime();
+}
+
 function canOpenGift() {
     const now = Date.now();
-    if (giftData.resetTime && now > giftData.resetTime) {
+
+    if (!giftData.resetTime || now > giftData.resetTime) {
         giftData.count = 0;
-        giftData.resetTime = null;
+        giftData.resetTime = calculateNextResetTime();
         localStorage.setItem("giftData", JSON.stringify(giftData));
-        giftsOpened = 0; 
-        updateGiftsLeftDisplay(); 
+        giftsOpened = 0;
+        updateGiftsLeftDisplay();
     }
+
     if (giftData.count >= maxGifts) {
+        const resetDate = new Date(giftData.resetTime);
+        const formattedResetTime = formatTime(resetDate);
+        document.getElementById("outOfGiftsText").textContent = `You have opened all your gifts for today! Gifts will reset at ${formattedResetTime}.`;
         document.getElementById("outOfGiftsModal").style.display = "flex";
         return false;
     }
@@ -59,19 +83,27 @@ document.getElementById("giftImage").addEventListener("click", function() {
 function openGift() {
     const randomItem = getRandomItem();
     showPopup(randomItem);
+
     if (!collectedItems[randomItem.name]) {
         collectedItems[randomItem.name] = 0;
     }
     collectedItems[randomItem.name]++;
     localStorage.setItem("collectedItems", JSON.stringify(collectedItems));
+
     giftData.count++;
+
     if (!giftData.resetTime) {
-        giftData.resetTime = Date.now() + 24 * 60 * 60 * 1000; 
+        giftData.resetTime = calculateNextResetTime(); 
     }
     localStorage.setItem("giftData", JSON.stringify(giftData));
+
     giftsOpened++;
     updateGiftsLeftDisplay();
+
     if (giftsOpened >= maxGifts) {
+        const resetDate = new Date(giftData.resetTime);
+        const formattedResetTime = formatTime(resetDate);
+        document.getElementById("outOfGiftsText").textContent = `You have opened all your gifts for today! Gifts will reset at ${formattedResetTime}.`;
         document.getElementById("outOfGiftsModal").style.display = "flex";
     }
 }
@@ -114,7 +146,6 @@ function showPopup(item) {
         popup.classList.add("hidden");
     });
 }
-
 
 document.getElementById("viewItems").addEventListener("click", function() {
     const itemsList = document.getElementById("itemsList");
