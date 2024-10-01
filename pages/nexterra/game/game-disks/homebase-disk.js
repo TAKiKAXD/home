@@ -320,10 +320,6 @@ const homebaseDisk = () => ({
           dir: 'east',
           id: 'hallway2',
         },
-        {
-          dir: 'west',
-          id: 'hallway4',
-        },
       ],
     },
     {
