@@ -1,5 +1,6 @@
 {
     "notes": [
+        "V-1.1.0 - Changed gift reset time to a set time every day instead of from when the last gift was opened.",
         "V-1.0.0 - Release"
     ]
 }
