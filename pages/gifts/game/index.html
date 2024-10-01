@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Gifts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Open Your Daily Gifts</h1>
+        <img id="giftImage" src="./images/Gift.png" alt="Click to open gift">
+        <p id="giftsLeft">You have <span id="giftsLeftCount">5</span> gifts left!</p>
+        <button id="viewItems">View Collected Items</button>
+
+        <div id="itemsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Your Collected Items</h2>
+                <ul id="itemsList"></ul>
+            </div>
+        </div>
+        <div id="itemPopup" class="hidden popup">
+            <img id="popupImage" src="" alt="Item Image">
+            <p id="popupText"></p>
+        </div>
+        <div id="outOfGiftsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeOutOfGiftsModal">&times;</span>
+                <p>You have opened all your gifts for today!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

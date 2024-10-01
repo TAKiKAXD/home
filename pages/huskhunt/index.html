@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Husk Hunt (Temp)</title>
+    <title></title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <style>
         /* General Styles */
@@ -100,6 +100,33 @@
             transform: scale(1);
         }
 
+        .patch-notes {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .patch-notes h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .patch-notes ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .patch-notes ul li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+
         /* Dark Mode Styles */
         @media (prefers-color-scheme: dark) {
             body {
@@ -153,22 +180,61 @@
             button:active {
                 background-color: #2a5ea1;
             }            
+            .patch-notes {
+                background-color: #1f1f1f;
+                border: 1px solid #333;
+                color: #e0e0e0;
+            }
+
+            .patch-notes h3 {
+                color: #e0e0e0;
+            }
+
+            .patch-notes ul li {
+                color: #bbb;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="warning-bar">Mobile play is not recommended</div>
     <div class="content">
-        <img src="./images/huskhuntimage.png" alt="Descriptive Image">
-        <h2>Husk Hunt (Temp)</h2>
+        <img src="./images/nexterra.png" alt="Descriptive Image">
+        <h2></h2>
         <p>
-            Husk Hunt: The Ultimate Fortnite STW Target Challenge. (Temp)<br>
-            Play now or download for Windows.<br>
+            <br>
+            Play now.<br>
         </p>
         <div class="buttons">
-            <a href="" class="download">Download</a>
             <a href="" class="play">Play Now</a>
             <button onclick="history.back()">Go Back</button>
         </div>
     </div>
+    <div class="patch-notes" id="patch-notes">
+        <h3>Patch Notes</h3>
+        <ul id="patch-list">
+            
+        </ul>
+    </div>
+
+    <script>
+        fetch('https://takikaxd.github.io/site/API//patchnotes.json')
+            .then(response => response.json())
+            .then(data => {
+                const patchList = document.getElementById('patch-list');
+                data.notes.forEach(note => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = note;
+                    patchList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching patch notes:', error);
+                const patchList = document.getElementById('patch-list');
+                const listItem = document.createElement('li');
+                listItem.textContent = 'Unable to load patch notes.';
+                patchList.appendChild(listItem);
+            });
+    </script>
 </body>
 </html>

@@ -1,0 +1,217 @@
+/* Body styling */
+body {
+    background-image: url('./images/Background.JPG'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    margin: 0; 
+    font-family: 'Burbank Big Condensed', sans-serif; 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 20, 55, 0.8); 
+    border: 3px solid #0094ff; 
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.75); 
+}
+
+#itemPopup {
+    visibility: hidden; 
+    opacity: 0; 
+    transition: visibility 0s, opacity 0.5s linear; 
+    background-color: rgba(0, 20, 55, 0.8);
+    border: 3px solid #0094ff;
+    padding: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#itemPopup.visible {
+    visibility: visible; 
+    opacity: 1; 
+}
+
+
+#itemPopup.hidden {
+    visibility: hidden; 
+    opacity: 0; 
+}
+
+
+#clickCounter {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+#itemsModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-items: center;
+}
+
+#itemsModal .modal-content {
+    background-color: rgba(0, 51, 122, 0.8);
+    padding: 20px;
+    border: 2px solid #0094ff;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+}
+
+#itemsModal .close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#itemsModal .close:hover,
+#itemsModal .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#itemsList {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#itemsList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+}
+
+#itemsList li img {
+    width: 40px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffcb00, #ffa700); 
+    border: 2px solid #ff9100;
+    color: #001f3f;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(255, 201, 0, 0.75);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ffa700, #ff6f00);
+    box-shadow: 0 0 12px rgba(255, 201, 0, 1);
+}
+
+/* Stats button */
+.stats-button {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #0094ff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 148, 255, 0.75);
+}
+
+.stats-button:hover {
+    background-color: #006bb3; 
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.75); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgba(0, 51, 122, 0.8);
+    border: 2px solid #0094ff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    25% { transform: translate(-1px, -2px) rotate(-1deg); }
+    50% { transform: translate(-3px, 0px) rotate(1deg); }
+    75% { transform: translate(3px, 2px) rotate(0deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
