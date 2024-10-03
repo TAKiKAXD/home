@@ -3,20 +3,19 @@
   "volume": "Vol. 1, Issue 1",
   "articles": [
     {
-      "title": "Lars is the best?",
-      "description": "Lars might just be the best person in homebase after recent poll show he's the most likable person"
+      "title": "City Shaken by Major Event",
+      "description": "A major event shocked the city today as residents woke up to unexpected news.",
+      "image": "city-event.jpg"
     },
     {
-      "title": "",
-      "description": ""
+      "title": "Local News: Community Rally",
+      "description": "The local community gathered for a rally to show support for small businesses.",
+      "image": "community-rally.jpg"
     },
     {
-      "title": "",
-      "description": ""
-    },
-    {
-      "title": "",
-      "description": ""
+      "title": "World News: International Conference",
+      "description": "Leaders from around the world met today to discuss global challenges and opportunities.",
+      "image": "international-conference.jpg"
     }
   ]
 }
