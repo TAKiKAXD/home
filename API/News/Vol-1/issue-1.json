@@ -5,17 +5,17 @@
     {
       "title": "City Shaken by Major Event",
       "description": "A major event shocked the city today as residents woke up to unexpected news.",
-      "image": "city-event.jpg"
+      "image": "https://takikaxd.github.io/site/API/images/Vol1-issue1-1.jpg"
     },
     {
       "title": "Local News: Community Rally",
       "description": "The local community gathered for a rally to show support for small businesses.",
-      "image": "community-rally.jpg"
+      "image": "https://takikaxd.github.io/site/API/images/Vol1-issue1-2.jpg"
     },
     {
       "title": "World News: International Conference",
       "description": "Leaders from around the world met today to discuss global challenges and opportunities.",
-      "image": "international-conference.jpg"
+      "image": "https://takikaxd.github.io/site/API/images/Vol1-issue1-3.jpg"
     }
   ]
 }
