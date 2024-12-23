@@ -1,1 +1,48 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Buttons</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2f2f2f; /* Dark gray background */
+        }
+        .button-container {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+        }
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .red { background-color: #e74c3c; } /* Red button */
+        .blue { background-color: #3498db; } /* Blue button */
+        .green { background-color: #2ecc71; } /* Green button */
+        .yellow { background-color: #f1c40f; } /* Yellow button */
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="red">Red</button>
+        <button class="blue">Blue</button>
+        <button class="green">Green</button>
+        <button class="yellow">Yellow</button>
+    </div>
+</body>
+</html>
