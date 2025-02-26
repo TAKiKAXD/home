@@ -1,0 +1,36 @@
+{
+  "update": {
+    "version": "0",
+    "releaseDate": "0000-00-00",
+    "changelog": [
+      {
+        "category": "New Features",
+        "items": [
+          "",
+          ""
+        ]
+      },
+      {
+        "category": "Bug Fixes",
+        "null": [
+          "null",
+          "null"
+        ]
+      },
+      {
+        "category": "Balancing",
+        "null": [
+          "null",
+          "null"
+        ]
+      },
+      {
+        "category": "Known Issues",
+        "null": [
+          "null",
+          "null"
+        ]
+      }
+    ]
+  }
+}

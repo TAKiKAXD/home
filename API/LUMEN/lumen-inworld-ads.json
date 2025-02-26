@@ -1,0 +1,10 @@
+{
+  "ads": [
+    {
+      "id": 1,
+      "type": "TMP",
+      "imageUrl": "https://takikaxd.github.io/home/images/llama.png",
+      "description": "TMP"
+    }
+  ]
+}

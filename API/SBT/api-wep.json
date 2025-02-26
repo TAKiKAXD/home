@@ -1,0 +1,22 @@
+{
+  "sword": {
+    "name": "TestWeapon",
+    "type": "Legendary",
+    "damage": 15,
+    "weight": null,
+    "durability": null,
+    "affinity": "Light",
+    "specialAbilities": [
+      {
+        "abilityName": "Slash",
+        "effect": "Deals extra damage to undead enemies.",
+        "cooldown": 30
+      },
+      {
+        "abilityName": "Flame",
+        "effect": "Sets enemies on fire, causing continuous damage.",
+        "cooldown": 60
+      }
+    ]
+  }
+}
